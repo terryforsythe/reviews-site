@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Reviews Site</title>
+</head>
+
+<body>
+    <tr>
+        <td th:text="${review.title}" />
+        <td th:text="${review.id}" />
+        <td th:text="${review.imageUrl}" />
+        <td th:text="${review.category}" />
+        <td th:text="${review.content}" />
+    </tr>
+
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head lang="en"></head>
+
+<body>
+    <table>
+        <tr th:each="review : ${reviews}">
+            <td th:text="${review.title}" />
+            <td th:text="${review.id}" />
+            <td th:text="${review.imageUrl}" />
+            <td th:text="${review.category}" />
+            <td th:text="${review.content}" />
+            <td><a th:href="@{/showReview(id=${review.id})}">View Details</a></td>
+        </tr>
+    </table>
+</body>
+
+</html>
