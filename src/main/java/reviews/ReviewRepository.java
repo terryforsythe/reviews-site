@@ -4,10 +4,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ReviewRepository {
+public interface ReviewRepository extends CrudRepository<Review,Long>{
 
 	private Map<Long, Review> reviews = new HashMap<Long, Review>();
 
@@ -18,9 +19,6 @@ public class ReviewRepository {
 		reviews.put(003L, new Review(003L, "title003", "imageUrl003", "category003", "content003"));
 	}
 
-	public Collection<Review> findAll() {
-		return reviews.values();
-	}
 
 	public Review findOne(Long id) {
 		return reviews.get(id);
