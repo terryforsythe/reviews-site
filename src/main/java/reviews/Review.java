@@ -13,44 +13,44 @@ public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	private String title;
-	private String imageUrl;
-	private String category;
-	private String content;
+	private long reviewId;
+	private String reviewTitle;
+	private String reviewImageUrl;
+	private String reviewCategory;
+	private String reviewContent;
 	
-	@OneToMany(mappedBy = "review", fetch = FetchType.EAGER)
-	private Review review;
+	@ManyToOne
+	Category category;
 	
 	protected Review() {
 	}
 
 	public Review(long id, String title, String imageUrl, String category, String content) {
-		this.id = id;
-		this.title = title;
-		this.imageUrl = imageUrl;
-		this.category = category;
-		this.content = content;
+		this.reviewId = id;
+		this.reviewTitle = title;
+		this.reviewImageUrl = imageUrl;
+		this.reviewCategory = category;
+		this.reviewContent = content;
 	}
 
-	public long getId() {
-		return id;
+	public long getReviewId() {
+		return reviewId;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getReviewTitle() {
+		return reviewTitle;
 	}
 
-	public String getImageUrl() {
-		return imageUrl;
+	public String getReviewImageUrl() {
+		return reviewImageUrl;
 	}
 
-	public String getCategory() {
-		return category;
+	public String getReviewCategory() {
+		return reviewCategory;
 	}
 
-	public String getContent() {
-		return content;
+	public String getReviewContent() {
+		return reviewContent;
 	}
 
 }
