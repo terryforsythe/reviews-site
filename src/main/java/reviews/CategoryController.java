@@ -1,27 +1,28 @@
 package reviews;
 
-
 import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class ReviewsController {
+public class CategoryController {
 
 	@Resource
-	ReviewRepository repository;
-
-	@RequestMapping("/showReviews")
+	private CategoryRepository repository;
+	
+	@RequestMapping("/showCategories")
 	public String showReviews(Model model) {
-		model.addAttribute("reviews", repository.findAll());
-		return "reviews";
+		model.addAttribute("categories", repository.findAll());
+		return "categories";
 	}
 
-	@RequestMapping("/showReview")
+	@RequestMapping("/showCategory")
 	public String showReview(@RequestParam long id, Model model) {
-		model.addAttribute("review", repository.findOne(id));
-		return "review";
+		model.addAttribute("category", repository.findOne(id));
+		return "category";
 	}
+	
 }

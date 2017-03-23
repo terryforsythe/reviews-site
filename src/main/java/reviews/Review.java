@@ -1,56 +1,54 @@
 package reviews;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Review {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long reviewId;
-	private String reviewTitle;
-	private String reviewImageUrl;
-	private String reviewCategory;
-	private String reviewContent;
+	private long id;
+	private String title;
+	private String imageUrl;
+	private String content;
 	
 	@ManyToOne
 	Category category;
 	
+
 	protected Review() {
 	}
 
 	public Review(long id, String title, String imageUrl, String category, String content) {
-		this.reviewId = id;
-		this.reviewTitle = title;
-		this.reviewImageUrl = imageUrl;
-		this.reviewCategory = category;
-		this.reviewContent = content;
+		this.id = id;
+		this.title = title;
+		this.imageUrl = imageUrl;
+//		this.category = category;
+		this.content = content;
 	}
 
-	public long getReviewId() {
-		return reviewId;
+	public long getId() {
+		return id;
 	}
 
-	public String getReviewTitle() {
-		return reviewTitle;
+	public String getTitle() {
+		return title;
 	}
 
-	public String getReviewImageUrl() {
-		return reviewImageUrl;
+	public String getImageUrl() {
+		return imageUrl;
+	}
+	
+	public Category getCategory() {
+		return category;
 	}
 
-	public String getReviewCategory() {
-		return reviewCategory;
-	}
-
-	public String getReviewContent() {
-		return reviewContent;
+	public String getcontent() {
+		return content;
 	}
 
 }

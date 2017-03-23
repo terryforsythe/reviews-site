@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class ReviewCategory {
+public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,17 +22,29 @@ public class ReviewCategory {
 	@OneToMany(mappedBy = "category", fetch = FetchType.EAGER)
 	private Collection<Review> reviews;
 	
-	protected ReviewCategory() {
+	protected Category() {
 	}
 	
-	public ReviewCategory(long id, String title) {
+	public Category(long id, String title) {
 		this(id, title, Collections.emptyList());
 	}
 	
-	public ReviewCategory(long id, String title, Collection<Review> reviews) {
+	public Category(long id, String title, Collection<Review> reviews) {
 		this.id = id;
 		this.title = title;
 		this.reviews = reviews;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public Collection<Review> getReviews() {
+		return reviews;
 	}
 	
 }
