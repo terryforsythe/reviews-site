@@ -5,7 +5,7 @@
 
 <body>
     <div>
-        <p th:each="category : ${categories}"><a th:text="${category.title}" th:href="@{/showReview(id=${category.id})}" /></p>
+        <p th:each="category : ${categories}"><a th:text="${category.title}" th:href="@{/showCategory(id=${category.id})}" /></p>
     </div>
 </body>
 
